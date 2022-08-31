@@ -1,0 +1,11 @@
+<div>
+    <div>{{question?.qname}}<span *ngIf="question?.required">*</span></div>
+    <div *ngIf="question?.ownAnswer">
+        <textarea (ngModelChange)="onAreaChange($event)" [(ngModel)]="longAns"></textarea>
+    </div>
+    <div *ngIf="!question?.ownAnswer">
+        <div *ngFor="let single of question?.mcq; let i = index">
+            <input (ngModelChange)="onCbChange($event)" type="checkbox" [id]="'cb'+i" [(ngModel)]="qAns[i]"/> {{single}}
+        </div>
+    </div>
+</div>

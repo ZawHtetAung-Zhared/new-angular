@@ -1,0 +1,16 @@
+<div>
+    <div *ngFor="let ans of Answers">
+        <div><b>{{ans.question}}</b></div>
+        <div *ngIf="ans.answers.longAns">
+            {{ans.answers.longAns}}
+        </div>
+        <div *ngIf="!ans.answers.longAns">
+            <div *ngFor="let mcq of ans.answers.qAns.name; let i = index">
+                {{ans.answers.qAns.value[i]? mcq : ''}}
+            </div>
+        </div>
+    </div>
+    <div (click)="back()">
+        Back to form builder
+    </div>
+</div>

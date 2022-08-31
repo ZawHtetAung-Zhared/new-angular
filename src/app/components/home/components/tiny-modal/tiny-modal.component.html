@@ -1,0 +1,17 @@
+<div class="modal-wrap">
+    <form [formGroup]="form" (keydown.enter)="$event.preventDefault()">
+    <h4>Add a New Questions</h4>
+    <input placeholder="Type question here." formControlName="Qname" />
+    <input [ngModelOptions]="{standalone: true}" [(ngModel)]="mcq[ans]" *ngFor="let ans of count" [id]="'answer' + ans" placeholder="add answer"/>
+    <div (click)="addMoreAns()"> + add another answer</div>
+    <div>
+        <input type="checkbox" [(ngModel)]="ownAnswer" [ngModelOptions]="{standalone: true}" />
+        Allow user to specify their own answer
+    </div>
+    <div>
+        <input type="checkbox" [(ngModel)]="required" [ngModelOptions]="{standalone: true}" />
+        This field is required
+    </div>
+    <button  type="submit" (click)="submit($event)">Submit</button>
+</form>
+</div>

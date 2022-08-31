@@ -1,0 +1,9 @@
+<app-question-display *ngFor="let question of questions" [question]="question" (outputAns)="acceptAns($event, question)"></app-question-display>
+<div style="display: flex;">
+    <div style="margin-right: 40px;">
+        <div style="cursor: pointer;margin-bottom: 40px;" (click)="openTinyModal()">Add New Question</div>
+        <button [disabled]="disable" (click)="gotoReview()">Review my answers ></button>
+        <!-- <button (click)="test()">test</button> -->
+    </div>
+    <app-tiny-modal (submitBtn)="submitClicked($event)" *ngIf="modalOpen"></app-tiny-modal>
+</div>
